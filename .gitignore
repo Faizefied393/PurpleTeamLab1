@@ -1,0 +1,11 @@
+*.evtx
+*.zip
+*.7z
+*.etl
+*.bak
+__pycache__/
+*.pyc
+.vscode/
+.env
+.DS_Store
+Thumbs.db
