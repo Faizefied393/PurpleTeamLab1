@@ -1,0 +1,42 @@
+# Scenario 1: Suspicious PowerShell Execution
+
+## Objective
+Simulate suspicious PowerShell activity in a controlled Windows lab and validate whether host telemetry captures the behavior.
+
+## MITRE ATT&CK
+- T1059.001 - PowerShell
+
+## Hypothesis
+If suspicious PowerShell execution occurs, Sysmon and PowerShell logs should capture process creation, command-line arguments, and script-related activity.
+
+## Test Method
+Run a safe Atomic Red Team PowerShell-related test in the lab environment.
+
+## Expected Evidence
+- Sysmon Event ID 1 for process creation
+- PowerShell operational logs
+- command-line telemetry
+- possible script block logging evidence
+
+## Detection Goal
+Identify suspicious PowerShell activity such as:
+- encoded commands
+- Invoke-Expression usage
+- download cradle patterns
+- execution policy bypass attempts
+
+## Tools Used
+- Windows
+- Sysmon
+- PowerShell Logging
+- Atomic Red Team
+- Sigma
+- Chainsaw
+
+## Result
+The scenario is intended to validate that suspicious PowerShell behavior generates useful host telemetry for detection development and analysis.
+
+## Improvements
+- add parent-child process analysis
+- tune detections for administrative false positives
+- expand detection coverage for obfuscated commands
