@@ -1,11 +1,25 @@
+# Logs / evidence
 *.evtx
-*.zip
-*.7z
 *.etl
 *.bak
+logs/evtx/*
+logs/samples/*
+
+# Tool binaries / archives
+*.exe
+*.msi
+*.zip
+*.7z
+*.rar
+
+# Python
 __pycache__/
 *.pyc
+
+# VS Code
 .vscode/
+
+# Environment / OS
 .env
 .DS_Store
 Thumbs.db

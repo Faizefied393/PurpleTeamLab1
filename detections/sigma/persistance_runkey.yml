@@ -1,0 +1,25 @@
+title: Suspicious Persistence via Run Key or Scheduled Task
+id: 33333333-3333-3333-3333-333333333333
+status: experimental
+description: Detects possible persistence activity involving registry Run keys or scheduled task creation
+logsource:
+  product: windows
+  category: process_creation
+detection:
+  selection_process:
+    Image|endswith:
+      - '\reg.exe'
+      - '\schtasks.exe'
+      - '\powershell.exe'
+      - '\cmd.exe'
+  selection_keywords:
+    CommandLine|contains:
+      - 'CurrentVersion\Run'
+      - 'CurrentVersion\RunOnce'
+      - '/create'
+      - 'schtasks'
+  condition: selection_process and selection_keywords
+level: high
+tags:
+  - attack.persistence
+  - attack.t1547

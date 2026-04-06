@@ -1,0 +1,14 @@
+title: Suspicious PowerShell
+logsource:
+  product: windows
+  category: process_creation
+detection:
+  selection:
+    Image|endswith: '\powershell.exe'
+  keywords:
+    CommandLine|contains:
+      - 'EncodedCommand'
+      - 'IEX'
+      - 'DownloadString'
+  condition: selection and keywords
+level: high
